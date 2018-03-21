@@ -1,0 +1,8 @@
+version: "3"
+services:
+  crawler:
+    image: crazygit/cd-house:latest
+    build: .
+    container_name: crawler
+    volumes:
+      - /data:/data
