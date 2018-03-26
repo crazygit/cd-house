@@ -10,4 +10,4 @@ else
     cd $proj_dir && git pull origin master
 fi
 
-cd $proj_dir && pipenv install && pipenv run scrapy crawl cdfangxie
+cd $proj_dir && pipenv install && pipenv run scrapy crawl cdfangxie -L ERROR

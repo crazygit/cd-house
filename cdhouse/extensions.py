@@ -35,3 +35,6 @@ class ItemStats(object):
                     'house.tpl',
                     new_items=self.new_items,
                     update_items=self.update_items))
+        if self.stats.get_value('log_count/ERROR', 0) > 0:
+            self.sender.send('%d ERROR when crawl' % self.stats.get_value(
+                'log_count/ERROR', 0))
