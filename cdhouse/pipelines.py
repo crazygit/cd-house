@@ -9,7 +9,7 @@ from scrapy.exceptions import DropItem
 from sqlalchemy.exc import IntegrityError
 
 from cdhouse.items import CdhouseItem
-from cdhouse.models import CdHouseModel, get_session, UpdateHistoryModel
+from cdhouse.models import CdHouseModel, UpdateHistoryModel, get_session
 
 
 class SQLAlchemyPipeline(object):

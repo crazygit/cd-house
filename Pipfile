@@ -6,6 +6,9 @@ name = "aliyun"
 [packages]
 Scrapy = "*"
 SQLAlchemy = "*"
+requests = "*"
+retrying = "*"
+"jinja2" = "*"
 
 [dev-packages]
 

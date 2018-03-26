@@ -46,6 +46,7 @@ DEFAULT_REQUEST_HEADERS = {
 }
 
 DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:////data/house.sqlite')
+SLACK_WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_URL')
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html

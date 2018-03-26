@@ -2,8 +2,8 @@
 
 from datetime import datetime
 
-from sqlalchemy import (Column, DateTime, Integer, String, create_engine,
-                        ForeignKey)
+from sqlalchemy import (Column, DateTime, ForeignKey, Integer, String,
+                        create_engine)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
