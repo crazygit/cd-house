@@ -61,9 +61,7 @@ DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:////data/house.sqlite')
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
-#    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
+EXTENSIONS = {'cdhouse.extensions.ItemStats': 0}
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html

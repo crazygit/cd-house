@@ -9,7 +9,7 @@ from scrapy.exceptions import DropItem
 from sqlalchemy.exc import IntegrityError
 
 from cdhouse.items import CdhouseItem
-from cdhouse.models import CdHouseModel, get_session
+from cdhouse.models import CdHouseModel, get_session, UpdateHistoryModel
 
 
 class SQLAlchemyPipeline(object):
@@ -40,8 +40,14 @@ class SQLAlchemyPipeline(object):
         model = self.session.query(model_class).filter_by(
             **unique_condition).first()
         if model:
+            update_info = model.is_updated(item)
+            if not update_info:
+                raise DropItem(f"Duplicate item: {item}")
+            self.session.bulk_insert_mappings(UpdateHistoryModel, update_info)
+            item['flag'] = 'update'
             model.init_or_update(item)
         else:
+            item['flag'] = 'new'
             model = model_class(item)
             self.session.add(model)
         try:

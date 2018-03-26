@@ -30,3 +30,5 @@ class CdhouseItem(scrapy.Item):
     end_time = scrapy.Field()
     # 项目报名状态
     status = scrapy.Field()
+    # 标识item是新增的还是更新的
+    flag = scrapy.Field()

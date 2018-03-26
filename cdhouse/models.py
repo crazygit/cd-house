@@ -2,8 +2,8 @@
 
 from datetime import datetime
 
-from sqlalchemy import (Column, Date, DateTime, Integer, String, Text,
-                        create_engine)
+from sqlalchemy import (Column, DateTime, Integer, String, create_engine,
+                        ForeignKey)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -72,3 +72,26 @@ class CdHouseModel(Base, ModelMixin):
     @staticmethod
     def get_unique_column():
         return 'project_uuid'
+
+    def is_updated(self, item):
+        updated_columns = []
+        for column in self.columns:
+            if column in item and getattr(self, column) != item[column]:
+                updated_columns.append({
+                    "column_name": column,
+                    "updated_from": getattr(self, column),
+                    "updated_to": item[column],
+                    "project_uuid": self.project_uuid
+                })
+        return updated_columns
+
+
+class UpdateHistoryModel(Base, ModelMixin):
+    __tablename__ = 'update_history'
+
+    project_uuid = Column(String(100), ForeignKey('house.project_uuid'))
+    column_name = Column(String(100), doc='改变的字段', nullable=False)
+    updated_from = Column(String(255), doc='字段的原始值', nullable=True)
+    updated_to = Column(String(255), doc='字段新的值', nullable=True)
+    updated_on = Column(
+        DateTime, nullable=False, default=datetime.now, doc='更新时间')

@@ -13,7 +13,13 @@ class FormatTime(object):
         ]
 
 
+class ConvertString2Int(object):
+    def __call__(self, values):
+        return [int(value) for value in values]
+
+
 class CdHouseItemLoader(ItemLoader):
     default_output_processor = TakeFirst()
     start_time_in = FormatTime()
     end_time_in = FormatTime()
+    houses_in = ConvertString2Int()
