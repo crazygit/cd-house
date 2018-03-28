@@ -32,7 +32,7 @@ crawl: clean
 	pipenv run scrapy crawl cdfangxie
 
 web: clean
-	pipenv run gunicorn -b 0.0.0.0:5000 --worker-class gevent --workers=2 cdhouse.web.app:robot.wsgi
+	pipenv run gunicorn -c gunicorn_config.py cdhouse.web.app:robot.wsgi
 
 build: clean
 	docker-compose build --force-rm
