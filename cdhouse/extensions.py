@@ -39,10 +39,10 @@ class ItemStats(object):
         return o
 
     def item_scraped(self, item, spider):
-        if item['flag'] == 'new':
+        if item.get('flag', '') == 'new':
             self.stats.inc_value('item_new_scraped_count', spider=spider)
             self.new_items.append(item)
-        elif item['flag'] == 'update':
+        elif item.get('flag', '') == 'update':
             self.stats.inc_value('item_updated_scraped_count', spider=spider)
             self.update_items.append(item)
 
