@@ -12,7 +12,7 @@ ifeq ($(PRE_COMMIT_EXISTS), 0)
 	@echo "Success install yapf commit hook"
 endif
 
-pip: install-git-hooks
+pip:
 	pipenv install --dev
 
 pep8: isort

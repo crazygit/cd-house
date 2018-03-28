@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "09aa54986f61c8c471ff7a7738332c49ef6e029435061350e043a9ce12c8ce25"
+            "sha256": "7be5ed4a353eb0c7e95e9ab3463dd6df3e7022b3b3b4e7bdd86e99fa0842ace0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -36,6 +36,12 @@
                 "sha256:3c1fd04ecf08ac87b4dd3feae409542e9bf7827257097b2b6ed5692f69d6f6a8"
             ],
             "version": "==0.6.0"
+        },
+        "bottle": {
+            "hashes": [
+                "sha256:39b751aee0b167be8dffb63ca81b735bbf1dd0905b3bc42761efedee8f123355"
+            ],
+            "version": "==0.12.13"
         },
         "certifi": {
             "hashes": [
@@ -303,6 +309,21 @@
                 "sha256:aaf7362464532b1036ab0092e2eee78e8fd7b56787baa9ed4967457b083d011b"
             ],
             "version": "==1.19.0"
+        },
+        "werobot": {
+            "hashes": [
+                "sha256:22e7a72fb370806c4246ec43c7393aef19b3027d544879ae02807702eee04a82",
+                "sha256:c1311bb762a1d28d5ccc6b4a90f0e712113337900486c5d82ec891c4b6d9aa37"
+            ],
+            "index": "aliyun",
+            "version": "==1.2.0"
+        },
+        "xmltodict": {
+            "hashes": [
+                "sha256:8f8d7d40aa28d83f4109a7e8aa86e67a4df202d9538be40c0cb1d70da527b0df",
+                "sha256:add07d92089ff611badec526912747cf87afd4f9447af6661aca074eeaf32615"
+            ],
+            "version": "==0.11.0"
         },
         "zope.interface": {
             "hashes": [

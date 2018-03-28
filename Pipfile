@@ -9,6 +9,7 @@ SQLAlchemy = "*"
 requests = "*"
 retrying = "*"
 "Jinja2" = "*"
+werobot = "*"
 
 [dev-packages]
 

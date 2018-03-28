@@ -40,13 +40,14 @@ TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    'Accept':
-    'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'
 }
 
-DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:////data/house.sqlite')
+DATABASE_URL = os.getenv('DATABASE_URL')
 SLACK_WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_URL')
+WECHAT_APP_ID = os.getenv('WECHAT_APP_ID')
+WECHAT_APP_SECRET = os.getenv('WECHAT_APP_SECRET')
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html

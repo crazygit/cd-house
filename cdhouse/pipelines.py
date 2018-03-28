@@ -5,14 +5,14 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-from scrapy.exceptions import DropItem
-from sqlalchemy.exc import IntegrityError
-
 from cdhouse.items import CdhouseItem
 from cdhouse.models import CdHouseModel, UpdateHistoryModel, get_session
+from scrapy.exceptions import DropItem, NotConfigured
+from sqlalchemy.exc import IntegrityError
 
 
 class SQLAlchemyPipeline(object):
+
     def __init__(self, url):
         self.session = get_session(url)
 
@@ -21,6 +21,8 @@ class SQLAlchemyPipeline(object):
 
     @classmethod
     def from_crawler(cls, crawler):
+        if not crawler.settings['DATABASE_URL']:
+            raise NotConfigured
         return cls(crawler.settings['DATABASE_URL'])
 
     def process_item(self, item, spider):

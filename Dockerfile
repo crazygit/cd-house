@@ -1,8 +1,10 @@
-FROM  python:3.6.4
+FROM  registry.docker-cn.com/library/python:3.6.4
 
 LABEL version="0.01"
 LABEL description="cd house dockfile"
 LABEL author="crazygit"
+
+ENV DATABASE_URL 'sqlite:////data/house.sqlite'
 
 WORKDIR /app
 
