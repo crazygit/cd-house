@@ -10,6 +10,13 @@ requests = "*"
 retrying = "*"
 "Jinja2" = "*"
 werobot = "*"
+dash = "*"
+dash-renderer = "*"
+dash-core-components = "*"
+plotly = "*"
+dash-html-components = "*"
+gunicorn = "*"
+gevent = "*"
 
 [dev-packages]
 

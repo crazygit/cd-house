@@ -1,4 +1,4 @@
-.PHONY: help,  pip, test, clean, pep8, install-git-hooks, up, run
+.PHONY: help, pip, test, clean, pep8, install-git-hooks, build, crawl, web
 
 PRE_COMMIT_EXISTS := $(shell [ -f .git/hooks/pre-commit ] && echo 1 || echo 0)
 
@@ -13,7 +13,7 @@ ifeq ($(PRE_COMMIT_EXISTS), 0)
 endif
 
 pip:
-	pipenv install --dev
+	pipenv install --python=3.6.4 --dev
 
 pep8: isort
 	pipenv run yapf -ir --style=google cdhouse
@@ -28,22 +28,26 @@ clean:
 	@find ./ -name '*~' -exec rm -f {} +
 	@find ./ -name '__pycache__' -exec rm -rf {} +
 
-run: clean
+crawl: clean
 	pipenv run scrapy crawl cdfangxie
 
-up: clean
-	docker-compose up --build
+web: clean
+	pipenv run gunicorn -b 0.0.0.0:5000 --worker-class gevent --workers=2 cdhouse.web.app:robot.wsgi
 
-isort:
+build: clean
+	docker-compose build --force-rm
+
+isort: clean
 	isort -rc cdhouse
 
 help:
 	@echo "   \033[35mmake\033[0m \033[1m命令使用说明\033[0m"
-	@echo "   \033[35mmake pip\033[0m\t\033[0m\t---  安装依赖以及 git hooks"
+	@echo "   \033[35mmake pip\033[0m\t\033[0m\t---  安装依赖"
 	@echo "   \033[35mmake clean\033[0m\t\033[0m\t---  清理 Python 缓存文件"
 	@echo "   \033[35mmake test\033[0m\t\033[0m\t---  运行测试用例"
 	@echo "   \033[35mmake pep8\033[0m\t\033[0m\t---  格式化代码"
 	@echo "   \033[35mmake install-git-hooks\033[0m\t\033[0m\t---  下载yapf commit hook"
-	@echo "   \033[35mmake up\033[0m\t\033[0m\t---  启动docker-compose服务"
-	@echo "   \033[35mmake run\033[0m\t\033[0m\t---  运行爬虫"
+	@echo "   \033[35mmake crawl\033[0m\t\033[0m\t---  运行爬虫"
+	@echo "   \033[35mmake run\033[0m\t\033[0m\t---  运行web服务"
+	@echo "   \033[35mmake build\033[0m\t\033[0m\t---  构建docker镜像"
 

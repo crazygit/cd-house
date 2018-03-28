@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for cdhouse project
+# Scrapy settings for cdhouse.crawler project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -10,10 +10,10 @@
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import os
 
-BOT_NAME = 'cdhouse'
+BOT_NAME = 'cdhouse_crawler'
 
-SPIDER_MODULES = ['cdhouse.spiders']
-NEWSPIDER_MODULE = 'cdhouse.spiders'
+SPIDER_MODULES = ['cdhouse.crawler.spiders']
+NEWSPIDER_MODULE = 'cdhouse.crawler.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = ' Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36 '
@@ -63,12 +63,12 @@ WECHAT_APP_SECRET = os.getenv('WECHAT_APP_SECRET')
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
-EXTENSIONS = {'cdhouse.extensions.ItemStats': 0}
+EXTENSIONS = {'cdhouse.crawler.extensions.ItemStats': 0}
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'cdhouse.pipelines.SQLAlchemyPipeline': 300,
+    'cdhouse.crawler.pipelines.SQLAlchemyPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

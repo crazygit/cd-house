@@ -4,9 +4,9 @@ import logging
 
 import requests
 from requests.exceptions import RequestException
-
-from cdhouse.utils.client import Client
 from retrying import retry
+
+from cdhouse.crawler.utils.client import Client
 
 logger = logging.getLogger(__name__)
 

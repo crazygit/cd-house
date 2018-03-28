@@ -2,9 +2,10 @@
 import re
 
 import scrapy
-from cdhouse.items import CdhouseItem
-from cdhouse.loader import CdHouseItemLoader
 from scrapy import FormRequest
+
+from cdhouse.crawler.items import CdhouseItem
+from cdhouse.crawler.loader import CdHouseItemLoader
 
 
 class CdfangxieSpider(scrapy.Spider):

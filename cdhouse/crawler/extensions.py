@@ -3,9 +3,10 @@
 import logging
 from datetime import datetime
 
-from cdhouse.misc import render
-from cdhouse.utils.client import SlackClient, WeChatClient
 from scrapy import signals
+
+from cdhouse.crawler.utils.client import SlackClient, WeChatClient
+from cdhouse.crawler.utils.misc import render
 
 logger = logging.getLogger(__name__)
 

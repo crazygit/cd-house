@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import time
 
-from cdhouse.utils.client import Client
 from werobot.client import Client as WerobotClient
+
+from cdhouse.crawler.utils.client import Client
 
 
 class WeChatClient(WerobotClient, Client):

@@ -5,10 +5,11 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-from cdhouse.items import CdhouseItem
-from cdhouse.models import CdHouseModel, UpdateHistoryModel, get_session
 from scrapy.exceptions import DropItem, NotConfigured
 from sqlalchemy.exc import IntegrityError
+
+from cdhouse.crawler.items import CdhouseItem
+from cdhouse.models import CdHouseModel, UpdateHistoryModel, get_session
 
 
 class SQLAlchemyPipeline(object):

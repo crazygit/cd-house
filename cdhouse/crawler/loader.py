@@ -7,6 +7,7 @@ from scrapy.loader.processors import TakeFirst
 
 
 class FormatTime(object):
+
     def __call__(self, values):
         return [
             datetime.strptime(value, '%Y-%m-%d %H:%M:%S') for value in values
@@ -14,6 +15,7 @@ class FormatTime(object):
 
 
 class ConvertString2Int(object):
+
     def __call__(self, values):
         return [int(value) for value in values]
 
