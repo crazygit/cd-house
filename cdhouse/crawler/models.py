@@ -45,7 +45,7 @@ def get_session(url, echo=False):
 
 class CdHouseModel(Base, ModelMixin):
     __tablename__ = 'house'
-    # 唯一编号
+
     project_uuid = Column(String(100), doc='唯一编号', unique=True, nullable=False)
     community_name = Column(String(100), doc='项目名称', nullable=False)
     region = Column(String(100), doc='区域', nullable=False)

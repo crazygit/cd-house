@@ -93,6 +93,6 @@ $ docker-compose run -e DATABASE_URL=${DATABASE_URL} -e SLACK_WEBHOOK_URL=${SLAC
 
 ## 效果图
 
-<image src="screenshots/wechat-demo.jpeg" width="45%" height="50%" align="left" alt="微信公众号效果图">
-<image src="screenshots/slack-demo.jpeg" width="45%" height="50%" align="right" alt="Slack效果图">
+<image src="screenshots/wechat-demo.jpeg" width="45%" height="50%" align="left" alt="微信公众号效果图" border="1px">
+<image src="screenshots/slack-demo.jpeg" width="45%" height="50%" align="right" alt="Slack效果图" border="1px">
 

@@ -6,7 +6,6 @@
 {{ macros.render_project(item) }}
 {% endfor %}
 {% endif %}
-
 {% if update_items | length != 0 %}
 ❗️【信息更新的楼盘】❗️
 {% for item in update_items %}

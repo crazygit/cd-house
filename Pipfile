@@ -17,9 +17,11 @@ plotly = "*"
 dash-html-components = "*"
 gunicorn = "*"
 gevent = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 pytest = "*"
+pytest-flask = "*"
 
 [requires]
 python_version = "3.6"

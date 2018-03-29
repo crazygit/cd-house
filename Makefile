@@ -2,7 +2,7 @@
 
 PRE_COMMIT_EXISTS := $(shell [ -f .git/hooks/pre-commit ] && echo 1 || echo 0)
 
-CODE = cdhouse tests manage.py
+CODE = cdhouse tests manage.py gunicorn_config.py wsgi.py
 default: help
 
 install-git-hooks:
@@ -33,7 +33,7 @@ crawl: clean
 	pipenv run scrapy crawl cdfangxie
 
 web: clean
-	pipenv run gunicorn -c gunicorn_config.py cdhouse.web.app:robot.wsgi
+	pipenv run gunicorn -c gunicorn_config.py wsgi:app
 
 build: clean
 	docker-compose build --force-rm

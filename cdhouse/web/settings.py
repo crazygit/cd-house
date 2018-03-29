@@ -33,6 +33,10 @@ WECHAT_CUSTOM_MENU = {
         }]
     }, {
         "type": "view",
+        "name": "统计数据",
+        "url": "http://house.wiseturtles.com/"
+    }, {
+        "type": "view",
         "name": "成都房协",
         "url": "http://www.cdfangxie.com/"
     }]
@@ -47,3 +51,7 @@ REGIONS = [
 REGIONS_PATTERN = re.compile(f'({"|".join(REGIONS)})')
 
 ECHO_SQL = False
+
+# flask_sqlalchemy
+SQLALCHEMY_DATABASE_URI = DATABASE_URL
+SQLALCHEMY_ECHO = True
