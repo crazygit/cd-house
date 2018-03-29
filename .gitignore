@@ -102,6 +102,6 @@ venv.bak/
 .mypy_cache/
 *.sqlite
 .idea/
-
+test_report.xml
 
 # End of https://www.gitignore.io/api/python

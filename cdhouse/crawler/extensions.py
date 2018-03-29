@@ -5,8 +5,8 @@ from datetime import datetime
 
 from scrapy import signals
 
-from cdhouse.crawler.utils.client import SlackClient, WeChatClient
-from cdhouse.crawler.utils.misc import render
+from cdhouse.utils.client import SlackClient, WeChatClient
+from cdhouse.utils.misc import render
 
 logger = logging.getLogger(__name__)
 

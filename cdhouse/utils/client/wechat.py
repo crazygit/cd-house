@@ -3,7 +3,7 @@ import time
 
 from werobot.client import Client as WerobotClient
 
-from cdhouse.crawler.utils.client import Client
+from cdhouse.utils.client import Client
 
 
 class WeChatClient(WerobotClient, Client):
