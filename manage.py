@@ -8,7 +8,6 @@ from flask.cli import FlaskGroup
 
 def create_app(info):
     from cdhouse.web import app_factory
-    # todo: 根据部署环境设置启动配置
     return app_factory()
 
 

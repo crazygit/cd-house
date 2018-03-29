@@ -3,9 +3,10 @@ from dash import Dash
 from flask import Flask
 from werobot.contrib.flask import make_view
 
-import cdhouse.web.settings
+from cdhouse.web import settings
 from cdhouse.web.extensions import db
 from cdhouse.web.werobot import robot
+from cdhouse.web.dash import config_dash
 
 
 def app_factory():
@@ -13,7 +14,7 @@ def app_factory():
     config_app(app)
     config_werobot(app)
     config_database(app)
-    config_dash(app)
+    dash_factory(app)
     return app
 
 
@@ -23,7 +24,7 @@ def config_database(app):
 
 
 def config_app(app):
-    app.config.from_object(cdhouse.web.settings)
+    app.config.from_object(settings)
 
 
 def config_werobot(app):
@@ -38,10 +39,6 @@ def config_werobot(app):
         methods=['GET', 'POST'])
 
 
-def config_dash(app):
-    from cdhouse.web.dash import layout
+def dash_factory(app):
     dash_app = Dash(server=app)
-    # 设置页面标题
-    dash_app.title = '成都房协发布房源统计数据'
-    # 设置页面布局
-    dash_app.layout = layout
+    config_dash(dash_app)

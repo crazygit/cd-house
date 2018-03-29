@@ -1,39 +1,51 @@
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
+from dash.dependencies import Input, Output
 from sqlalchemy import func
-from flask import current_app
 
 from cdhouse.web.extensions import db
 from cdhouse.web.models import CdHouseModel
 
 
 def get_region_projects():
-    labels = []
-    values = []
     rows = db.session.query(CdHouseModel.region, func.count(
         CdHouseModel.region)).group_by(CdHouseModel.region).all()
+    regions = []
+    projects_number = []
     for row in rows:
-        labels.append(row[0])
-        values.append(rows[1])
-    return (labels, values)
+        regions.append(row[0])
+        projects_number.append(row[1])
+    return (regions, projects_number)
 
 
-def get_region_projects_pie():
-    # current_app.logger.debug('get_region_projects_pie')
-    # todo: fixme
-    # labels, values = get_region_projects()
-    labels = ['Oxygen', 'Hydrogen', 'Carbon_Dioxide', 'Nitrogen']
-    values = [4500, 2500, 1053, 500]
-
-    # current_app.logger.debug(f'labels: {labels}')
-    # current_app.logger.debug(f'values: {values}')
-    return dcc.Graph(
-        id='region_pie',
-        figure=go.Figure(data=[go.Pie(labels=labels, values=values)]))
+def get_layout():
+    return html.Div(children=[
+        html.H1(children='成都房协发布房源统计数据', id='pie-title'),
+        dcc.Graph(id='region-pie')
+    ])
 
 
-layout = html.Div(children=[
-    html.H1(children='各区市房源数量'),
-    get_region_projects_pie(),
-])
+def config_dash(dash_app):
+    # 设置页面标题
+    dash_app.title = '成都房协发布房源统计数据'
+    # 设置页面布局
+    dash_app.layout = get_layout()
+
+    @dash_app.callback(
+        Output('region-pie', 'figure'), [Input('pie-title', 'id')])
+    def update_figure(input_value):
+        regions, projects_number = get_region_projects()
+        return go.Figure(
+            data=[
+                go.Pie(
+                    labels=regions,
+                    values=projects_number,
+                    hole=0.3,
+                    hoverinfo='label+percent+name',
+                    textinfo='value',
+                )
+            ],
+            layout={
+                "title": "各市县房源数",
+            })
