@@ -5,8 +5,7 @@ import click
 from flask import Flask
 from werobot.contrib.flask import make_view
 
-from cdhouse.web.app import create_menu
-from cdhouse.web.app import robot
+from cdhouse.web.app import create_menu, robot
 
 logging.basicConfig(
     level=logging.DEBUG,

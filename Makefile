@@ -2,6 +2,7 @@
 
 PRE_COMMIT_EXISTS := $(shell [ -f .git/hooks/pre-commit ] && echo 1 || echo 0)
 
+CODE = cdhouse tests manage.py
 default: help
 
 install-git-hooks:
@@ -16,7 +17,7 @@ pip:
 	pipenv install --python=3.6.4 --dev
 
 pep8: isort
-	pipenv run yapf -ir --style=google cdhouse
+	pipenv run yapf -ir --style=google $(CODE)
 
 test: clean
 	pipenv run python -m pytest
@@ -38,7 +39,7 @@ build: clean
 	docker-compose build --force-rm
 
 isort: clean
-	isort -rc cdhouse
+	isort -rc $(CODE)
 
 help:
 	@echo "   \033[35mmake\033[0m \033[1m命令使用说明\033[0m"

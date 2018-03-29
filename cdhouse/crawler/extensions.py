@@ -56,6 +56,3 @@ class ItemStats(object):
                 update_time=datetime.strftime(datetime.now(),
                                               '%Y-%m-%d %H:%M:%S'))
             self.send(msg)
-        if self.stats.get_value('log_count/ERROR', 0) > 0:
-            self.send('%d ERROR when crawl' % self.stats.get_value(
-                'log_count/ERROR', 0))

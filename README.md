@@ -85,12 +85,14 @@ $ docker-compose run -e DATABASE_URL=${DATABASE_URL} -e SLACK_WEBHOOK_URL=${SLAC
 
 可以根据自己的需要，周期性运行爬虫
 
-## 效果图
-
-![微信公众号效果图](screenshots/wechat-demo.jpeg)
-
 ## Todo List
 
-* [ ] 自定义爬虫命令, 当有异常时，返回正常的exit_code
-* [ ] 添加微信公众号自定义菜单，方便按照区域查询在售楼盘信息
+* [ x ] 自定义爬虫命令, 当有异常时，返回正常的exit_code
+* [ x ] 添加微信公众号自定义菜单，方便按照区域查询在售楼盘信息
 * [ ] 集成[Dash](https://plot.ly/products/dash/), 展示一些有用的数据图表
+
+## 效果图
+
+<image src="screenshots/wechat-demo.jpeg" width="50%" align="left" alt="微信公众号效果图">
+<image src="screenshots/slack-demo.jpeg" width="50%" align="right" alt="Slack效果图">
+

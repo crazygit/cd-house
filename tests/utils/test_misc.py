@@ -2,7 +2,7 @@
 import pytest
 
 from cdhouse.crawler.settings import DATABASE_URL
-from cdhouse.models import get_session, CdHouseModel
+from cdhouse.models import CdHouseModel, get_session
 from cdhouse.utils.misc import render
 
 
