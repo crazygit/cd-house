@@ -4,6 +4,10 @@
 
 定期从[成都房协](http://171.221.172.13:8888/lottery/accept/projectList)抓取发布的楼盘信息，当发现有新的楼盘发布或有楼盘信息发生更新的时候，通过Slack或微信公众号将信息推送给关注者
 
+## 楼盘统计数据查看
+
+<http://house.wiseturtles.com/>
+
 ## 使用说明
 
 运行项目前, 有四个环境变量需要配置
@@ -89,10 +93,9 @@ $ docker-compose run -e DATABASE_URL=${DATABASE_URL} -e SLACK_WEBHOOK_URL=${SLAC
 
 * [x] 自定义爬虫命令, 当有异常时，返回正常的exit_code
 * [x] 添加微信公众号自定义菜单，方便按照区域查询在售楼盘信息
-* [ ] 集成[Dash](https://plot.ly/products/dash/), 展示一些有用的数据图表
+* [x] 集成[Dash](https://plot.ly/products/dash/), 展示一些有用的数据图表
 
 ## 效果图
 
 <image src="screenshots/wechat-demo.jpeg" width="45%" height="50%" align="left" alt="微信公众号效果图" border="1px">
 <image src="screenshots/slack-demo.jpeg" width="45%" height="50%" align="right" alt="Slack效果图" border="1px">
-
