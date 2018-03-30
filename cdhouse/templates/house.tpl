@@ -12,5 +12,3 @@
 {{ macros.render_project(item) }}
 {% endfor %}
 {% endif %}
-
-【数据更新于: {{ update_time }}】

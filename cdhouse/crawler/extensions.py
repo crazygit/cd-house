@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from datetime import datetime
 
 from scrapy import signals
 
@@ -52,7 +51,6 @@ class ItemStats(object):
             msg = render(
                 'house.tpl',
                 new_items=self.new_items,
-                update_items=self.update_items,
-                update_time=datetime.strftime(datetime.now(),
-                                              '%Y-%m-%d %H:%M:%S'))
+                update_items=self.update_items)
+
             self.send(msg)
