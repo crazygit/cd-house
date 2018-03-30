@@ -9,7 +9,7 @@ from cdhouse.web.models import CdHouseModel
 
 
 def get_region_projects():
-    """按市县分组楼盘数"""
+    """按区县分组楼盘数"""
     rows = db.session.query(CdHouseModel.region,
                             func.count(CdHouseModel.project_uuid)).group_by(
                                 CdHouseModel.region).all()
@@ -17,7 +17,7 @@ def get_region_projects():
 
 
 def get_region_houses():
-    """按市县分组房子套数"""
+    """按区县分组房子套数"""
 
     rows = db.session.query(
         CdHouseModel.region,
@@ -35,7 +35,7 @@ def get_projects_by_date():
 
 
 def get_open_project_by_region():
-    """获取当前各市县在售楼盘数"""
+    """获取当前各区县在售楼盘数"""
     rows = db.session.query(
         CdHouseModel.region,
         func.count(CdHouseModel.project_uuid).label('project_number'),
@@ -88,7 +88,7 @@ def config_dash(dash_app):
                 )
             ],
             layout={
-                "title": "各市县楼盘数总数",
+                "title": "各区县楼盘数总数",
             })
 
     @dash_app.callback(
@@ -110,7 +110,7 @@ def config_dash(dash_app):
                     ),
                     opacity=0.6),
             ],
-            layout=go.Layout(title='各市县房子总套数'))
+            layout=go.Layout(title='各区县房子总套数'))
 
     @dash_app.callback(
         Output('open-project-bar', 'figure'), [Input('pie-title', 'id')])
@@ -135,7 +135,7 @@ def config_dash(dash_app):
                     name='楼盘数',
                 ),
             ],
-            layout=go.Layout(title='各市县在售情况', barmode='stack'))
+            layout=go.Layout(title='各区县在售情况', barmode='stack'))
 
     @dash_app.callback(
         Output('project-line', 'figure'), [Input('pie-title', 'id')])
