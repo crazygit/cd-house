@@ -30,7 +30,8 @@ def get_projects_by_date():
     """按日期统计楼盘数"""
     rows = db.session.query(
         func.date(CdHouseModel.start_time).label('date'),
-        func.count(CdHouseModel.project_uuid)).group_by('date')
+        func.count(CdHouseModel.project_uuid)).group_by('date').order_by(
+            db.asc('date')).all()
     return zip(*rows)
 
 
