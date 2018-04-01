@@ -68,11 +68,6 @@ def config_dash(dash_app):
     dash_app.title = '成都房协商品住房数据统计'
     # 设置页面布局
     dash_app.layout = get_layout()
-    # 添加页面访问次数统计 http://busuanzi.ibruce.info/
-    dash_app.scripts.append_script({
-        'external_url':
-        '//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js'
-    })
 
     @dash_app.callback(
         Output('region-pie', 'figure'), [Input('pie-title', 'id')])

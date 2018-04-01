@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from dash import Dash
+from cdhouse.web.utils.dash import CustomDash
 from flask import Flask
 from werobot.contrib.flask import make_view
 
@@ -40,5 +40,5 @@ def config_werobot(app):
 
 
 def dash_factory(app):
-    dash_app = Dash(server=app)
+    dash_app = CustomDash(server=app)
     config_dash(dash_app)
