@@ -15,9 +15,9 @@ class CustomDash(Dash):
               <head>
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1">
-                  <link rel="apple-touch-icon" sizes="180x180" href="http://crazygit.wiseturtles.com/images/favicon-32x32-next.png?v=5.1.4">
-                  <link rel="icon" type="image/png" sizes="32x32" href="http://crazygit.wiseturtles.com/images/favicon-32x32-next.png?v=5.1.4">
-                  <link rel="icon" type="image/png" sizes="16x16" href="http://crazygit.wiseturtles.com/images/favicon-16x16-next.png?v=5.1.4">
+                  <link rel="apple-touch-icon" sizes="180x180" href="//crazygit.wiseturtles.com/images/favicon-32x32-next.png?v=5.1.4">
+                  <link rel="icon" type="image/png" sizes="32x32" href="//crazygit.wiseturtles.com/images/favicon-32x32-next.png?v=5.1.4">
+                  <link rel="icon" type="image/png" sizes="16x16" href="//crazygit.wiseturtles.com/images/favicon-16x16-next.png?v=5.1.4">
                   <meta name="keywords" content="crazygit,成都房协,房源,摇号,统计" />
                   <title>{}</title>
                   {}
