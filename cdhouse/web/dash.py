@@ -85,6 +85,12 @@ def config_dash(dash_app):
             ],
             layout={
                 "title": "各区县楼盘数总数",
+                "xaxis": {
+                    "fixedrange": True
+                },
+                "yaxis": {
+                    "fixedrange": True
+                }
             })
 
     @dash_app.callback(
@@ -106,7 +112,10 @@ def config_dash(dash_app):
                     ),
                     opacity=0.6),
             ],
-            layout=go.Layout(title='各区县房子总套数'))
+            layout=go.Layout(
+                title='各区县房子总套数',
+                xaxis=dict(fixedrange=True),
+                yaxis=dict(fixedrange=True)))
 
     @dash_app.callback(
         Output('open-project-bar', 'figure'), [Input('pie-title', 'id')])
@@ -131,7 +140,11 @@ def config_dash(dash_app):
                     name='楼盘数',
                 ),
             ],
-            layout=go.Layout(title='各区县在售情况', barmode='stack'))
+            layout=go.Layout(
+                title='各区县在售情况',
+                barmode='stack',
+                xaxis=dict(fixedrange=True),
+                yaxis=dict(fixedrange=True)))
 
     @dash_app.callback(
         Output('project-line', 'figure'), [Input('pie-title', 'id')])
@@ -144,5 +157,6 @@ def config_dash(dash_app):
             )],
             layout=go.Layout(
                 title='楼盘开盘走势',
-                xaxis={'tickformat': '%Y-%m-%d'},
-            ))
+                xaxis={'tickformat': '%Y-%m-%d',
+                       'fixedrange': True},
+                yaxis=dict(fixedrange=True)))
