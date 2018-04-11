@@ -6,7 +6,7 @@
 
 ## 楼盘统计数据查看
 
-<http://house.wiseturtles.com/>
+<https://cdfangxun.wiseturtles.com/>
 
 ## 使用说明
 
@@ -66,6 +66,9 @@ $ pipenv install --python 3.6.4
 
 # 运行爬虫
 $ pipenv run scrapy crawl cdfangxie
+
+# 运行web服务
+$ pipenv run python manage.py run
 ```
 
 ### 以docker的方式运行
